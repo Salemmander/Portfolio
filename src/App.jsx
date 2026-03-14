@@ -13,7 +13,7 @@ const projects = [
   {
     title: 'Object Tracking Camera',
     description: 'Real-time object detection and tracking system on Raspberry Pi 5 using YOLOv11 and OpenCV. PID-controlled servo motors enable smooth physical pan-tilt tracking of detected faces.',
-    tags: ['Python', 'OpenCV', 'C++', 'PID Control' ],
+    tags: ['Python', 'OpenCV', 'C++', 'PID Control'],
     github: 'https://github.com/Salemmander/object-tracking-camera',
     media: { type: 'image', src: '/object_tracking_demo.gif' },
   },
@@ -41,7 +41,12 @@ function App() {
       <section className="section">
         <h2>About</h2>
         <p className="about">
-          Add a bit about yourself here.
+          I'm Salem Nassar. A software engineer at Verizon with a passion for autonomous robotics.
+          I wish to create the brains of robots that will change the world like autonomous cars, and humanoid robots. This technology will make transport accessible
+          to everyone, save countless lives, and change the way people travel. Humanoid robots will do the dangerous work, boring physical tasks, and even provide
+          medical care.
+          I am creating end to end machine learning systems for these exact robotics problems. I'm pursuing a Masters in Computer Science with a specialization
+          in Machine Learning online at Georgia Tech. Using the knowledge from that program I created a vision only autonomous rc car.
         </p>
       </section>
 
