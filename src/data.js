@@ -66,7 +66,7 @@ export const experience = [
     period: '2024 - Present',
     bullets: [
       'Led development of 20+ Python automation tools for edge network infrastructure across 8+ vendor platforms',
-      'Reduced deployment time by 90% through multi-stage Docker builds and GitLab CI/CD pipelines',
+      'Reduced deployment time by 90% through multi-stage Docker builds and CI/CD pipelines',
       'Architected HashiCorp Vault infrastructure across multiple Kubernetes clusters using Terraform',
     ],
   },
