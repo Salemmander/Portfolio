@@ -50,17 +50,12 @@ function App() {
         </p>
       </section>
 
-      <section className="section">
-        <h2>Contact</h2>
+      <footer>
         <div className="contact-links">
           <a href="https://github.com/Salemmander" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://linkedin.com/in/salemnassar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="mailto:Salem.Nassar1@outlook.com">Email</a>
         </div>
-      </section>
-
-      <footer>
-        Built with React + Vite
       </footer>
     </>
   )

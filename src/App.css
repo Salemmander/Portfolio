@@ -112,8 +112,8 @@
 
 .contact-links {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
 }
 
 footer {
