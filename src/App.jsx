@@ -17,8 +17,7 @@ function App() {
           <h1>Salem Nassar</h1>
           <p className="hero-subtitle">Software Engineer | Robotics &amp; ML</p>
           <p className="tagline">
-            Building things that move, sense, and think.
-            Creating end-to-end machine learning systems for autonomous robotics.
+            Building end-to-end computer vision systems for robots that move, sense, and think.
           </p>
           <div className="hero-accent-line" />
         </div>
