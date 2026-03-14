@@ -30,6 +30,10 @@ Single-page React 19 portfolio (plain JS, no TypeScript). Vite for bundling.
 - Accent color: `--accent: #64b5f6` (blue), `--accent-secondary: #a78bfa` (purple)
 - Max content width: 1000px, project cards full-width with alternating media layout
 
+## Deployment
+
+Auto-deploys to GitHub Pages on push to `master` via `.github/workflows/deploy.yml`. Custom domain `salemnassar.com` configured through Cloudflare DNS (A record + CNAME for www). The `public/CNAME` file is required for GitHub Pages custom domain to persist across deploys.
+
 ## Static Assets
 
 Large media files (videos, GIFs) go in `public/` and are referenced by absolute path (e.g., `/autonomous_rc_car_demo.mp4`). Small assets imported from `src/assets/` get processed by Vite.
