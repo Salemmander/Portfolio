@@ -122,15 +122,13 @@ function App() {
       <section id="education" className="section fade-section">
         <h2>Education</h2>
         <div className="education-timeline">
-          {education.map((edu) => (
-            <div key={edu.school} className="education-item card">
+          {education.map((edu, index) => (
+            <div key={edu.school} className={`education-item card ${index % 2 === 0 ? 'left' : 'right'}`}>
+              <span className="education-period">{edu.period}</span>
               <h3>{edu.school}</h3>
-              <p className="education-detail">
-                <strong>{edu.degree}</strong>
-                {edu.detail && ` -- ${edu.detail}`}
-                {edu.gpa && ` | GPA: ${edu.gpa}`}
-              </p>
-              <p className="education-detail">{edu.period}</p>
+              <p className="education-degree">{edu.degree}</p>
+              {edu.detail && <p className="education-specialization">{edu.detail}</p>}
+              {edu.gpa && <p className="education-gpa">GPA: {edu.gpa}</p>}
             </div>
           ))}
         </div>
