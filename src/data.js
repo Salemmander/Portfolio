@@ -1,7 +1,7 @@
 export const projects = [
   {
     title: 'Autonomous RC Car',
-    description: 'End-to-end self-driving RC car on Raspberry Pi 5 using NVIDIA\'s PilotNet CNN architecture in PyTorch. Predicts steering angles from raw camera images via behavioral cloning.',
+    description: 'End-to-end self-driving RC car on Raspberry Pi 5 using NVIDIA\'s PilotNet CNN architecture in PyTorch. Predicts steering angles directly from raw camera images.',
     achievements: [
       'Trained on 10K+ frames collected from manual driving',
       'Real-time inference on Raspberry Pi 5 edge hardware',
@@ -14,7 +14,7 @@ export const projects = [
   },
   {
     title: 'Object Tracking Camera',
-    description: 'Real-time object detection and tracking system on Raspberry Pi 5 using YOLOv11 and OpenCV. PID-controlled servo motors enable smooth physical pan-tilt tracking.',
+    description: 'Real-time object detection and tracking system on Raspberry Pi 5 using YOLOv11 and OpenCV. PID-controlled servo motors enable smooth pan-tilt tracking.',
     achievements: [
       'Low-latency face detection in video streams using YOLOv11 and OpenCV',
       'Closed-loop PID controller in C++ driving PCA9685 servo motors for smooth pan-tilt tracking',
@@ -39,7 +39,7 @@ export const skills = [
     items: ['Kubernetes', 'OpenShift', 'Docker', 'Helm', 'Terraform', 'GitLab CI/CD', 'Linux', 'Git', 'Vault'],
   },
   {
-    title: 'Data / Web',
+    title: 'Data',
     items: ['PostgreSQL', 'SQL', 'Redis', 'React'],
   },
 ]
