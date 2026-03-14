@@ -1,0 +1,21 @@
+const links = [
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
+  { label: 'About', href: '#about' },
+]
+
+function Nav() {
+  return (
+    <nav className="nav">
+      <div className="nav-links">
+        {links.map(({ label, href }) => (
+          <a key={href} href={href}>{label}</a>
+        ))}
+      </div>
+    </nav>
+  )
+}
+
+export default Nav
