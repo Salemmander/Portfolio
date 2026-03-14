@@ -39,12 +39,10 @@ function App() {
       <section id="about" className="section fade-section">
         <h2>About</h2>
         <p className="about">
-          I'm Salem Nassar. A software engineer at Verizon with a passion for autonomous robotics.
-          I wish to create the brains of robots that will change the world like autonomous cars, and humanoid robots. This technology will make transport accessible
-          to everyone, save countless lives, and change the way people travel. Humanoid robots will do the dangerous work, boring physical tasks, and even provide
-          medical care.
-          I am creating end to end machine learning systems for these exact robotics problems. I'm pursuing a Masters in Computer Science with a specialization
-          in Machine Learning online at Georgia Tech. Using the knowledge from that program I created a vision only autonomous rc car.
+          I first got hooked on robotics after experiencing a self-driving car firsthand.
+          Seeing how close the technology actually is and how much it could change made me want to build it myself.
+          Now I'm focused on end-to-end computer vision for robotics, going straight from raw camera input to real-world actions.
+          Outside of engineering I play guitar and have been a competitive swimmer my whole life.
         </p>
       </section>
 
