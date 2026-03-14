@@ -134,6 +134,15 @@
   display: flex;
   justify-content: center;
   gap: 28px;
+  font-size: 1.5rem;
+}
+
+.contact-links a {
+  color: var(--text);
+}
+
+.contact-links a:hover {
+  color: var(--accent);
 }
 
 footer {

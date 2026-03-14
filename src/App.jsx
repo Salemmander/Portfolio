@@ -54,9 +54,9 @@ function App() {
 
       <footer>
         <div className="contact-links">
-          <a href="https://github.com/Salemmander" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://linkedin.com/in/salemnassar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="mailto:Salem.Nassar1@outlook.com">Email</a>
+          <a href="https://github.com/Salemmander" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+          <a href="https://linkedin.com/in/salemnassar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a href="mailto:Salem.Nassar1@outlook.com" aria-label="Email"><FaEnvelope /></a>
         </div>
       </footer>
     </>
