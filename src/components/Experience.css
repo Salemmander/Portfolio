@@ -1,0 +1,19 @@
+/* ── Experience ── */
+.experience-item {
+  padding: 28px 32px;
+}
+
+.experience-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.experience-meta {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.experience-item .bullet-list {
+  font-size: 0.95rem;
+}

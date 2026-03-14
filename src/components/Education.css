@@ -1,0 +1,139 @@
+/* ── Education ── */
+.education-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 24px 0;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--accent), var(--accent-secondary));
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+.education-item {
+  position: relative;
+  width: calc(50% - 50px);
+  padding: 24px 28px;
+}
+
+.education-item.left {
+  align-self: flex-start;
+  text-align: right;
+}
+
+.education-item.right {
+  align-self: flex-end;
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  box-shadow: 0 0 12px rgba(100, 181, 246, 0.5), 0 0 24px rgba(100, 181, 246, 0.2);
+  z-index: 1;
+}
+
+.education-item.left::before {
+  left: calc(100% + 40px);
+}
+
+.education-item.right::before {
+  left: -60px;
+}
+
+.education-item::after {
+  content: '';
+  position: absolute;
+  top: 37px;
+  height: 2px;
+  width: 40px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  opacity: 0.4;
+}
+
+.education-item.left::after {
+  left: 100%;
+}
+
+.education-item.right::after {
+  left: -40px;
+}
+
+.education-item h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.education-period {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, rgba(100, 181, 246, 0.12), rgba(167, 139, 250, 0.12));
+  border: 1px solid rgba(100, 181, 246, 0.2);
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.education-degree {
+  font-size: 0.95rem;
+  color: var(--text-h);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.education-specialization {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.education-gpa {
+  font-size: 0.85rem;
+  color: var(--accent-secondary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .education-timeline::before {
+    left: 16px;
+    transform: none;
+  }
+
+  .education-item,
+  .education-item.left,
+  .education-item.right {
+    width: 100%;
+    align-self: stretch;
+    padding-left: 52px;
+    text-align: left;
+  }
+
+  .education-item.left::before,
+  .education-item.right::before {
+    left: 6px;
+  }
+
+  .education-item.left::after,
+  .education-item.right::after {
+    left: 26px;
+    width: 20px;
+  }
+}

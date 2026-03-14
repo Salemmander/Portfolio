@@ -1,3 +1,5 @@
+import './Nav.css'
+
 const links = [
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },

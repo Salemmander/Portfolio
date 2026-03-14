@@ -1,4 +1,6 @@
-function ProjectCard({ project }) {
+import './Project.css'
+
+function Project({ project }) {
   return (
     <div className="project-card card">
       {project.media && (
@@ -33,4 +35,4 @@ function ProjectCard({ project }) {
   )
 }
 
-export default ProjectCard
+export default Project
