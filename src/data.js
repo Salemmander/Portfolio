@@ -36,7 +36,7 @@ export const skills = [
   },
   {
     title: 'DevOps / Infrastructure',
-    items: ['Kubernetes', 'OpenShift', 'Docker', 'Helm', 'Terraform', 'GitLab CI/CD', 'Linux', 'Git', 'Vault'],
+    items: ['Kubernetes', 'OpenShift', 'Docker', 'Helm', 'Terraform', 'CI/CD', 'Linux', 'Git', 'Vault'],
   },
   {
     title: 'Data',
