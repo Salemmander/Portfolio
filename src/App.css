@@ -88,11 +88,26 @@
 }
 
 .hero-accent-line {
-  width: 80px;
+  width: 120px;
   height: 3px;
   background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
   margin-top: 20px;
   border-radius: 2px;
+}
+
+.hero-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+  font-size: 1.3rem;
+}
+
+.hero-links a {
+  color: var(--text);
+}
+
+.hero-links a:hover {
+  color: var(--accent);
 }
 
 /* ── Sections ── */
@@ -149,6 +164,10 @@ footer {
 
   .hero-accent-line {
     margin: 20px auto 0;
+  }
+
+  .hero-links {
+    justify-content: center;
   }
 
   .section h2 {

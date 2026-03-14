@@ -36,3 +36,14 @@
   padding: 4px 12px;
   color: var(--text-h);
 }
+
+@media (max-width: 768px) {
+  .skill-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skill-row h3 {
+    min-width: unset;
+  }
+}

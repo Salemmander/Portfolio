@@ -1,4 +1,5 @@
 import './App.css'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import Nav from './components/Nav'
 import Project from './components/Project'
 import Skills from './components/Skills'
@@ -20,6 +21,11 @@ function App() {
             Building end-to-end computer vision systems for robots that move, sense, and think.
           </p>
           <div className="hero-accent-line" />
+          <div className="hero-links">
+            <a href="https://github.com/Salemmander" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+            <a href="https://linkedin.com/in/salemnassar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+            <a href="mailto:Salem.Nassar1@outlook.com" aria-label="Email"><FaEnvelope /></a>
+          </div>
         </div>
       </section>
 

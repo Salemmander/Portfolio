@@ -112,8 +112,12 @@
 }
 
 @media (max-width: 768px) {
+  .education-timeline {
+    padding-left: 32px;
+  }
+
   .education-timeline::before {
-    left: 16px;
+    left: 8px;
     transform: none;
   }
 
@@ -122,18 +126,21 @@
   .education-item.right {
     width: 100%;
     align-self: stretch;
-    padding-left: 52px;
+    padding: 20px 20px 20px 24px;
     text-align: left;
   }
 
   .education-item.left::before,
   .education-item.right::before {
-    left: 6px;
+    left: -32px;
+    width: 16px;
+    height: 16px;
   }
 
   .education-item.left::after,
   .education-item.right::after {
-    left: 26px;
-    width: 20px;
+    left: -16px;
+    width: 16px;
+    top: 34px;
   }
 }
