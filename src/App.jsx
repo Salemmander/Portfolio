@@ -30,7 +30,7 @@ function App() {
       </section>
 
       <section id="about" className="section fade-section">
-        <h2>About</h2>
+        <h2>About Me</h2>
         <p className="about">
           After experiencing a self-driving car for the first time I became obsessed.
           How does it work? How does a car see? That curiosity is what got me into
