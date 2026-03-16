@@ -41,9 +41,18 @@
   justify-content: center;
 }
 
+.project-title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .project-card h3 {
   font-size: 1.3rem;
   margin-bottom: 12px;
+}
+
+.project-title-link:hover h3 {
+  color: var(--accent);
 }
 
 .project-card .card-body > p {
