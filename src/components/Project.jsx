@@ -1,18 +1,21 @@
+import { Link } from 'react-router-dom'
 import './Project.css'
 
 function Project({ project }) {
   return (
     <div className="project-card card">
       {project.media && (
-        <div className="media">
+        <Link to={`/projects/${project.slug}`} className="media">
           {project.media.type === 'image'
             ? <img src={project.media.src} alt={project.title} />
             : <video src={project.media.src} autoPlay loop muted playsInline />
           }
-        </div>
+        </Link>
       )}
       <div className="card-body">
-        <h3>{project.title}</h3>
+        <Link to={`/projects/${project.slug}`} className="project-title-link">
+          <h3>{project.title}</h3>
+        </Link>
         <p>{project.description}</p>
         {project.achievements && (
           <ul className="achievements bullet-list">
@@ -29,6 +32,7 @@ function Project({ project }) {
         <div className="links">
           <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
           {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">Demo</a>}
+          <Link to={`/projects/${project.slug}`}>Read more</Link>
         </div>
       </div>
     </div>

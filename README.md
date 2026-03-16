@@ -14,25 +14,27 @@ npm run lint      # ESLint check
 
 ## Deployment
 
-Pushes to `master` auto-deploy to GitHub Pages via GitHub Actions. Custom domain (`salemnassar.com`) is configured through Cloudflare DNS.
+Pushes to `master` auto-deploy to Cloudflare Pages. Custom domain (`salemnassar.com`) is configured through Cloudflare.
 
 ## Structure
 
 ```
 src/
-  App.jsx              # Main layout (hero, about, footer)
+  App.jsx              # Router setup
   App.css              # Shared and layout styles
-  data.js              # All data arrays (projects, skills, education, experience)
+  data.js              # All data arrays (projects, education, experience)
   index.css            # Global styles, CSS variables, animations
   main.jsx             # React entry point
+  pages/
+    Home.jsx           # Home page layout
   components/
     Nav.jsx + .css     # Fixed top navigation
     Project.jsx + .css # Project card
-    Skills.jsx + .css  # Skills grid
+    ProjectDetail.jsx + .css # Project detail page
     Experience.jsx + .css # Experience entries
     Education.jsx + .css  # Education timeline
 public/
   profile.jpg          # Profile photo
-  CNAME                # Custom domain for GitHub Pages
+  _redirects           # Cloudflare Pages SPA fallback
   *.mp4, *.gif         # Project demo media
 ```

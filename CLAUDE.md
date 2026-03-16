@@ -11,28 +11,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-Single-page React 19 portfolio (plain JS, no TypeScript). Vite for bundling.
+React 19 portfolio with client-side routing (plain JS, no TypeScript). Vite for bundling, react-router-dom for routing.
 
-**App.jsx** is the main component containing the page layout (hero, projects, skills, experience, education, about, footer) and data arrays (`projects`, `skills`, `education`) inline. Each project object has: `title`, `description`, `achievements`, `tags`, `github`, optional `demo`, and optional `media` (`{ type: 'video'|'image', src }`)
+**App.jsx** is the router shell with two routes: `/` (Home) and `/projects/:slug` (ProjectDetail).
 
-**ProjectCard.jsx** is a pure presentational component that renders a single project card from a `project` prop. Supports video (autoplay/loop/muted/playsInline) and image/GIF media, plus achievement bullet points.
+**Home.jsx** is the main page layout (hero, projects list, experience, education, footer).
 
-**Nav.jsx** is a fixed top navigation bar with smooth-scroll anchor links to each section.
+**data.js** contains all data arrays (`projects`, `education`, `experience`). Each project object has: `title`, `slug`, `description`, `achievements`, `tags`, `github`, optional `demo`, optional `media` (`{ type: 'video'|'image', src }`), and `details` (story, howItWorks, challenges, results, whatsNext).
+
+**Project.jsx** renders a project card on the home page. Cards link to `/projects/{slug}`.
+
+**ProjectDetail.jsx** renders a full project detail page from the `details` object in data.
+
+**Nav.jsx** is a fixed top navigation bar with smooth-scroll anchor links.
 
 ## Styling
 
 - Dark theme only, defined via CSS custom properties in `index.css`
 - `index.css` = global resets, variables, typography, fade-in animation
-- `App.css` = layout and component styles (no CSS modules)
+- `App.css` = shared classes and layout styles
+- Each component has co-located CSS (e.g., `Project.css`, `Education.css`)
 - Shared `.card` class for consistent card styling (bg, border, radius, hover lift)
 - Shared `.bullet-list` class for consistent list bullet styling
-- Shared `.tag` class for skill/project tags
+- Shared `.tag` class for project tags
 - Accent color: `--accent: #64b5f6` (blue), `--accent-secondary: #a78bfa` (purple)
 - Max content width: 1000px, project cards full-width with alternating media layout
 
 ## Deployment
 
-Auto-deploys to GitHub Pages on push to `master` via `.github/workflows/deploy.yml`. Custom domain `salemnassar.com` configured through Cloudflare DNS (A record + CNAME for www). The `public/CNAME` file is required for GitHub Pages custom domain to persist across deploys.
+Auto-deploys to Cloudflare Pages on push to `master`. Custom domain `salemnassar.com` configured through Cloudflare. The `public/_redirects` file handles SPA fallback routing.
 
 ## Static Assets
 
