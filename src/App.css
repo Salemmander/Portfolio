@@ -123,12 +123,6 @@
   display: inline-block;
 }
 
-/* ── About ── */
-.about {
-  line-height: 1.8;
-  font-size: 1.05rem;
-}
-
 /* ── Footer ── */
 .contact-links {
   display: flex;

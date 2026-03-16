@@ -1,20 +1,20 @@
 export const projects = [
   {
     title: 'Autonomous RC Car',
-    description: 'End-to-end self-driving RC car on Raspberry Pi 5 using NVIDIA\'s PilotNet CNN architecture in PyTorch. Predicts steering angles directly from raw camera images.',
+    description: 'I taught an RC car to drive itself using nothing but a camera and a neural network. Built on a Raspberry Pi 5 with a PyTorch implementation of NVIDIA\'s PilotNet architecture, it predicts steering angles directly from raw camera images.',
     achievements: [
       'Trained on 10K+ frames collected from manual driving',
       'Real-time inference on Raspberry Pi 5 edge hardware',
       'Autonomously navigates a track in both directions',
     ],
-    tags: ['Python', 'PyTorch', 'CNNs', 'OpenCV'],
+    tags: ['Python', 'PyTorch', 'CNNs', 'OpenCV', 'NumPy'],
     github: 'https://github.com/Salemmander/autonomous-rc-car',
     media: { type: 'video', src: '/autonomous_rc_car_demo.mp4' },
     demo: 'https://youtu.be/KV0Y-V7XpoU',
   },
   {
     title: 'Object Tracking Camera',
-    description: 'Real-time object detection and tracking system on Raspberry Pi 5 using YOLOv11 and OpenCV. PID-controlled servo motors enable smooth pan-tilt tracking.',
+    description: 'A camera that follows you around the room. Uses YOLOv11 for real-time object detection on a Raspberry Pi 5, with PID-controlled servo motors for smooth pan-tilt tracking.',
     achievements: [
       'Low-latency face detection in video streams using YOLOv11 and OpenCV',
       'Closed-loop PID controller in C++ driving PCA9685 servo motors for smooth pan-tilt tracking',
@@ -22,25 +22,6 @@ export const projects = [
     tags: ['Python', 'OpenCV', 'C++', 'PID Control'],
     github: 'https://github.com/Salemmander/object-tracking-camera',
     media: { type: 'image', src: '/object_tracking_demo.gif' },
-  },
-]
-
-export const skills = [
-  {
-    title: 'ML / Computer Vision',
-    items: ['PyTorch', 'OpenCV', 'NumPy', 'Scikit-learn'],
-  },
-  {
-    title: 'Languages',
-    items: ['Python', 'C++', 'Bash', 'Java', 'JavaScript'],
-  },
-  {
-    title: 'DevOps / Infrastructure',
-    items: ['Kubernetes', 'OpenShift', 'Docker', 'Helm', 'Terraform', 'CI/CD', 'Linux', 'Git', 'Vault'],
-  },
-  {
-    title: 'Data',
-    items: ['PostgreSQL', 'SQL', 'Redis', 'React'],
   },
 ]
 

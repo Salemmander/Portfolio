@@ -2,10 +2,10 @@ import './App.css'
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import Nav from './components/Nav'
 import Project from './components/Project'
-import Skills from './components/Skills'
+
 import Experience from './components/Experience'
 import Education from './components/Education'
-import { projects, skills, education, experience } from './data'
+import { projects, education, experience } from './data'
 
 function App() {
   return (
@@ -29,18 +29,6 @@ function App() {
         </div>
       </section>
 
-      <section id="about" className="section fade-section">
-        <h2>About Me</h2>
-        <p className="about">
-          After experiencing a self-driving car for the first time I became obsessed.
-          How does it work? How does a car see? That curiosity is what got me into
-          end-to-end computer vision for robotics. Being able to perceive and understand
-          the world through just image data and use that perception to take real-world
-          actions is incredible. When I'm not building or learning about end-to-end
-          robotics, I'm playing guitar or swimming.
-        </p>
-      </section>
-
       <section id="projects" className="section fade-section">
         <h2>Projects</h2>
         <div className="projects-list">
@@ -50,7 +38,6 @@ function App() {
         </div>
       </section>
 
-      <Skills skills={skills} />
       <Experience experience={experience} />
       <Education education={education} />
 
