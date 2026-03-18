@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { FaGithub } from 'react-icons/fa'
 import './Project.css'
 
 function Project({ project }) {
@@ -13,9 +14,12 @@ function Project({ project }) {
         </div>
       )}
       <div className="card-body">
-        <Link to={`/projects/${project.slug}`} className="project-overlay-link">
-          <h3>{project.title}</h3>
-        </Link>
+        <div className="card-header">
+          <Link to={`/projects/${project.slug}`} className="project-overlay-link">
+            <h3>{project.title}</h3>
+          </Link>
+          <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="github-icon"><FaGithub /></a>
+        </div>
         <p>{project.description}</p>
         {project.achievements && (
           <ul className="achievements bullet-list">
@@ -28,10 +32,6 @@ function Project({ project }) {
           {project.tags.map((tag) => (
             <span key={tag} className="tag">{tag}</span>
           ))}
-        </div>
-        <div className="links">
-          <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-          {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">Demo</a>}
         </div>
       </div>
     </div>

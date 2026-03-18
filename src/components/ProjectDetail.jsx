@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
+import { FaGithub } from 'react-icons/fa'
 import './ProjectDetail.css'
 import { projects } from '../data'
 
@@ -30,17 +31,15 @@ function ProjectDetail() {
         </div>
       )}
 
-      <h1>{project.title}</h1>
+      <div className="detail-header">
+        <h1>{project.title}</h1>
+        <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="detail-github-icon"><FaGithub /></a>
+      </div>
 
       <div className="detail-tags">
         {project.tags.map((tag) => (
           <span key={tag} className="tag">{tag}</span>
         ))}
-      </div>
-
-      <div className="detail-links">
-        <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-        {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">Demo</a>}
       </div>
 
       <p className="detail-description">{project.description}</p>

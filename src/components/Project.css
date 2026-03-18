@@ -79,13 +79,22 @@
   color: var(--accent);
 }
 
-.project-card .links {
+.project-card .card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.project-card .github-icon {
   position: relative;
   z-index: 1;
-  display: flex;
-  gap: 16px;
-  margin-top: 16px;
-  font-size: 0.9rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.project-card .github-icon:hover {
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {

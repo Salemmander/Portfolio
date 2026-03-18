@@ -23,9 +23,25 @@
   margin: 0 auto 32px;
 }
 
+.detail-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
 .project-detail h1 {
   font-size: 2.2rem;
   margin-bottom: 16px;
+}
+
+.detail-github-icon {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.detail-github-icon:hover {
+  color: var(--accent);
 }
 
 .detail-tags {
@@ -38,13 +54,6 @@
 .detail-tags .tag {
   font-size: 0.8rem;
   color: var(--accent);
-}
-
-.detail-links {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
-  font-size: 0.9rem;
 }
 
 .detail-description {
