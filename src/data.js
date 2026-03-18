@@ -10,7 +10,7 @@ export const projects = [
     ],
     tags: ['Python', 'PyTorch', 'CNNs', 'OpenCV', 'NumPy'],
     github: 'https://github.com/Salemmander/autonomous-rc-car',
-    media: { type: 'video', src: '/autonomous_rc_car_demo.mp4' },
+    media: { type: 'video', src: '/autonomous_rc_car_demo.mp4', poster: '/autonomous_rc_car_poster.jpg' },
     demo: 'https://youtu.be/KV0Y-V7XpoU',
     details: {
       // TODO: Write 2-3 sentences about what made you want to build this.
