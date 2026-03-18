@@ -25,7 +25,7 @@ function ProjectDetail() {
         <div className="detail-media">
           {project.media.type === 'image'
             ? <img src={project.media.src} alt={project.title} />
-            : <video src={project.media.src} poster={project.media.poster} autoPlay loop muted playsInline />
+            : <video src={project.media.src} autoPlay loop muted playsInline />
           }
         </div>
       )}

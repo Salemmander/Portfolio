@@ -8,7 +8,7 @@ function Project({ project }) {
         <Link to={`/projects/${project.slug}`} className="media">
           {project.media.type === 'image'
             ? <img src={project.media.src} alt={project.title} />
-            : <video src={project.media.src} poster={project.media.poster} autoPlay loop muted playsInline />
+            : <video src={project.media.src} autoPlay loop muted playsInline />
           }
         </Link>
       )}
