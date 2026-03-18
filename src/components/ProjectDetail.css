@@ -15,18 +15,12 @@
   color: var(--accent);
 }
 
-.detail-media {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 32px;
-  background: #000;
-}
-
-.detail-media img,
-.detail-media video {
-  width: 100%;
+.detail-media video,
+.detail-media img {
+  max-width: 100%;
   display: block;
+  border-radius: 12px;
+  margin: 0 auto 32px;
 }
 
 .project-detail h1 {

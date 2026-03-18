@@ -6,6 +6,7 @@
 }
 
 .project-card {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
@@ -41,18 +42,20 @@
   justify-content: center;
 }
 
-.project-title-link {
+.project-overlay-link {
   text-decoration: none;
   color: inherit;
+}
+
+.project-overlay-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
 }
 
 .project-card h3 {
   font-size: 1.3rem;
   margin-bottom: 12px;
-}
-
-.project-title-link:hover h3 {
-  color: var(--accent);
 }
 
 .project-card .card-body > p {
@@ -77,6 +80,8 @@
 }
 
 .project-card .links {
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: 16px;
   margin-top: 16px;

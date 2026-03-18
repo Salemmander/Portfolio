@@ -5,15 +5,15 @@ function Project({ project }) {
   return (
     <div className="project-card card">
       {project.media && (
-        <Link to={`/projects/${project.slug}`} className="media">
+        <div className="media">
           {project.media.type === 'image'
             ? <img src={project.media.src} alt={project.title} />
             : <video src={project.media.src} autoPlay loop muted playsInline />
           }
-        </Link>
+        </div>
       )}
       <div className="card-body">
-        <Link to={`/projects/${project.slug}`} className="project-title-link">
+        <Link to={`/projects/${project.slug}`} className="project-overlay-link">
           <h3>{project.title}</h3>
         </Link>
         <p>{project.description}</p>
@@ -32,7 +32,6 @@ function Project({ project }) {
         <div className="links">
           <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
           {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">Demo</a>}
-          <Link to={`/projects/${project.slug}`}>Read more</Link>
         </div>
       </div>
     </div>
