@@ -13,22 +13,25 @@ export const projects = [
     media: { type: 'video', src: '/autonomous_rc_car_demo.mp4' },
     demo: 'https://youtu.be/KV0Y-V7XpoU',
     details: {
-      // TODO: Write 2-3 sentences about what made you want to build this.
-      // What was the spark? How did the self-driving car experience connect to this project?
-      story: '',
-      // TODO: Walk through the pipeline. Camera captures frame -> preprocessing ->
-      // PilotNet CNN predicts steering angle -> PWM signal to motor controller.
-      // What does the model architecture look like? How did you collect training data?
-      howItWorks: '',
-      // TODO: What was hard? Data collection issues? Model not generalizing?
-      // Latency problems on the Pi? What did you try that didn't work?
-      challenges: '',
-      // TODO: Quantify what you achieved. Lap times, success rate, track complexity,
-      // inference speed, how many different tracks it handles.
-      results: '',
-      // TODO: Custom model architecture, more complex tracks, better data collection,
-      // different sensors, faster inference, etc.
-      whatsNext: '',
+      story: 'The first time I sat in a self-driving car I was so fascinated that I needed to understand the technology. I knew the impact this would have and I just had to be a part of it. Building an autonomous RC car from scratch was my way into the fundamentals of end-to-end learning, where raw camera input maps directly to control outputs. It\'s the same core idea behind full-scale self-driving, just small enough to crash into a wall without consequences.',
+      howItWorks: {
+        intro: 'I collected training data by driving the car myself, then trained a neural network to replicate my steering.',
+        bullets: [
+          'Keyboard controls for manual driving, recorded 10,000 frames paired with steering angles',
+          'NVIDIA PilotNet architecture: 5 conv layers into fully connected layers, outputs a single steering angle',
+          'Frames resized to 120x160, top 30% cropped, converted to YCbCr for lighting robustness',
+          'Full inference loop runs at 20 Hz on the Pi 5 CPU over I2C',
+        ],
+      },
+      whatsNext: {
+        intro: 'There\'s a lot I still want to explore with this project.',
+        bullets: [
+          'Switch from keyboard to gamepad for smoother steering and real throttle input',
+          'Collect recovery data to teach the model how to correct itself',
+          'Custom model architecture for handling things like stop sign detection',
+          'Reinforcement learning and sim-to-real transfer',
+        ],
+      },
     },
   },
   {
@@ -43,21 +46,16 @@ export const projects = [
     github: 'https://github.com/Salemmander/object-tracking-camera',
     media: { type: 'image', src: '/object_tracking_demo.gif' },
     details: {
-      // TODO: Why did you build this? What problem were you solving?
-      // Was it a stepping stone to the RC car? A standalone idea?
-      story: '',
-      // TODO: Detection pipeline: camera frame -> YOLOv11 inference -> bounding box ->
-      // error calculation -> PID controller -> servo PWM signals.
-      // Why YOLOv11? Why C++ for the PID controller?
-      howItWorks: '',
-      // TODO: PID tuning difficulties? Latency between detection and servo response?
-      // Jittery tracking? How did you solve these?
-      challenges: '',
-      // TODO: Tracking accuracy, response time, how smoothly it follows,
-      // what objects/people it can track, range of motion.
-      results: '',
-      // TODO: Different objects to track, faster models, outdoor use, etc.
-      whatsNext: '',
+      story: 'I wanted to learn the basics of robotics: object detection, PID control, motor control, and how to tie them all together in a real-time system. A camera that tracks your face felt like the perfect project to get hands-on with all of those at once.',
+      howItWorks: {
+        intro: 'The camera detects a face, calculates how far off-center it is, and adjusts two servo motors to keep it centered.',
+        bullets: [
+          'YOLOv11n-face runs on the Pi 5 at ~25-30 FPS for real-time detection',
+          'Pixel offset is converted to angle error using the camera\'s calibrated field of view',
+          'A PID controller written in C++ computes the correction for each axis (pan and tilt)',
+          'Servo commands are sent over I2C to a PCA9685 PWM controller driving SG90 servos',
+        ],
+      },
     },
   },
 ]

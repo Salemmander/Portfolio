@@ -3,6 +3,27 @@ import { FaGithub } from 'react-icons/fa'
 import './ProjectDetail.css'
 import { projects } from '../data'
 
+function DetailSection({ title, content }) {
+  const isStructured = typeof content === 'object'
+  return (
+    <section className="detail-section">
+      <h2>{title}</h2>
+      {isStructured ? (
+        <>
+          <p>{content.intro}</p>
+          <ul className="bullet-list">
+            {content.bullets.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>{content}</p>
+      )}
+    </section>
+  )
+}
+
 function ProjectDetail() {
   const { slug } = useParams()
   const project = projects.find((p) => p.slug === slug)
@@ -42,8 +63,6 @@ function ProjectDetail() {
         ))}
       </div>
 
-      <p className="detail-description">{project.description}</p>
-
       {details?.story && (
         <section className="detail-section">
           <h2>The Story</h2>
@@ -52,31 +71,12 @@ function ProjectDetail() {
       )}
 
       {details?.howItWorks && (
-        <section className="detail-section">
-          <h2>How It Works</h2>
-          <p>{details.howItWorks}</p>
-        </section>
+        <DetailSection title="How It Works" content={details.howItWorks} />
       )}
 
-      {details?.challenges && (
-        <section className="detail-section">
-          <h2>Challenges</h2>
-          <p>{details.challenges}</p>
-        </section>
-      )}
-
-      {details?.results && (
-        <section className="detail-section">
-          <h2>Results</h2>
-          <p>{details.results}</p>
-        </section>
-      )}
 
       {details?.whatsNext && (
-        <section className="detail-section">
-          <h2>What's Next</h2>
-          <p>{details.whatsNext}</p>
-        </section>
+        <DetailSection title="What's Next" content={details.whatsNext} />
       )}
     </div>
   )
