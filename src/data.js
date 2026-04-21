@@ -81,9 +81,9 @@ export const experience = [
     company: 'Verizon',
     period: '2024 - Present',
     bullets: [
-      'Led development of 20+ Python automation tools for edge network infrastructure across 8+ vendor platforms',
-      'Reduced deployment time by 90% through multi-stage Docker builds and CI/CD pipelines',
-      'Architected HashiCorp Vault infrastructure across multiple Kubernetes clusters using Terraform',
+      'Led development of 20+ Python automation tools for edge infrastructure across 8+ platforms',
+      'Reduced deployment time by 90% using GitLab CI/CD for multi-stage Docker builds and OpenTofu-automated multi-cluster OpenShift deployments',
+      'Solely owned and maintained two production platforms on OpenShift, including secrets management infrastructure and a Helm-deployed multi-service application with PostgreSQL, Redis, and Celery workers',
     ],
   },
 ]
