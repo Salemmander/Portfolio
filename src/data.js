@@ -2,7 +2,7 @@ export const projects = [
   {
     title: 'Autonomous RC Car',
     slug: 'autonomous-rc-car',
-    description: 'I taught an RC car to drive itself using nothing but a camera and a neural network. Built on a Raspberry Pi 5 with a PyTorch implementation of NVIDIA\'s PilotNet architecture, it predicts steering angles directly from raw camera images.',
+    description: 'I taught an RC car to drive itself using nothing but a camera and a neural network. Built on a Raspberry Pi 5 with a PyTorch implementation of NVIDIA\'s PilotNet architecture, it predicts steering and throttle directly from raw camera images.',
     achievements: [
       'Trained on 10K+ frames collected from manual driving',
       'Real-time inference on Raspberry Pi 5 edge hardware',
@@ -15,18 +15,18 @@ export const projects = [
     details: {
       story: 'The first time I sat in a self-driving car I was so fascinated that I needed to understand the technology. I knew the impact this would have and I just had to be a part of it. Building an autonomous RC car from scratch was my way into the fundamentals of end-to-end learning, where raw camera input maps directly to control outputs. It\'s the same core idea behind full-scale self-driving, just small enough to crash into a wall without consequences.',
       howItWorks: {
-        intro: 'I collected training data by driving the car myself, then trained a neural network to replicate my steering.',
+        intro: 'I collected training data by driving the car myself, then trained a neural network to replicate my steering and throttle.',
         bullets: [
-          'Keyboard controls for manual driving, recorded 10,000 frames paired with steering angles',
-          'NVIDIA PilotNet architecture: 5 conv layers into fully connected layers, outputs a single steering angle',
+          'Keyboard controls for manual driving, recorded 10,000 frames paired with steering and throttle values',
+          'NVIDIA PilotNet architecture: 5 conv layers into fully connected layers, outputs steering and throttle',
           'Frames resized to 120x160, top 30% cropped, converted to YCbCr per the PilotNet paper',
-          'Full inference loop runs at 20 Hz on the Pi 5 CPU over I2C',
+          'Full inference loop runs at ~45 Hz on the Pi 5 CPU',
         ],
       },
       whatsNext: {
         intro: 'There\'s a lot I still want to explore with this project.',
         bullets: [
-          'Switch from keyboard to gamepad for smoother steering and real throttle input',
+          'Switch from keyboard to gamepad for smoother analog steering and throttle input',
           'Collect recovery data to teach the model how to correct itself',
           'Custom model architecture for handling things like stop sign detection',
           'Reinforcement learning and sim-to-real transfer',
