@@ -19,7 +19,7 @@ export const projects = [
         bullets: [
           'Keyboard controls for manual driving, recorded 10,000 frames paired with steering angles',
           'NVIDIA PilotNet architecture: 5 conv layers into fully connected layers, outputs a single steering angle',
-          'Frames resized to 120x160, top 30% cropped, converted to YCbCr for lighting robustness',
+          'Frames resized to 120x160, top 30% cropped, converted to YCbCr per the PilotNet paper',
           'Full inference loop runs at 20 Hz on the Pi 5 CPU over I2C',
         ],
       },
