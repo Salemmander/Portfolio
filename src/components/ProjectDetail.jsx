@@ -1,17 +1,16 @@
 import { useParams, Link } from 'react-router-dom'
-import { FaGithub } from 'react-icons/fa'
-import './ProjectDetail.css'
+import Media from './Media'
 import { projects } from '../data'
 
 function DetailSection({ title, content }) {
   const isStructured = typeof content === 'object'
   return (
-    <section className="detail-section">
-      <h2>{title}</h2>
+    <section>
+      <h2 className="label">{title}</h2>
       {isStructured ? (
         <>
           <p>{content.intro}</p>
-          <ul className="bullet-list">
+          <ul>
             {content.bullets.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -30,55 +29,45 @@ function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="project-detail">
-        <Link to="/" className="back-link">Back to home</Link>
+      <main className="page detail">
+        <Link to="/" className="back">← Salem Nassar</Link>
         <h1>Project not found</h1>
-      </div>
+      </main>
     )
   }
 
   const { details } = project
 
   return (
-    <div className="project-detail">
-      <Link to="/" className="back-link">Back to home</Link>
+    <main className="page detail">
+      <Link to="/" className="back">← Salem Nassar</Link>
 
-      {project.media && (
-        <div className="detail-media">
-          {project.media.type === 'image'
-            ? <img src={project.media.src} alt={project.title} />
-            : <video src={project.media.src} autoPlay loop muted playsInline />
-          }
-        </div>
-      )}
+      <h1>{project.title}</h1>
+      <p className="lede">{project.description}</p>
 
-      <div className="detail-header">
-        <h1>{project.title}</h1>
-        <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="detail-github-icon"><FaGithub /></a>
-      </div>
+      {project.media && <Media media={project.media} alt={project.title} />}
 
-      <div className="detail-tags">
+      <p className="tags label">
         {project.tags.map((tag) => (
-          <span key={tag} className="tag">{tag}</span>
+          <span key={tag}>{tag}</span>
         ))}
+      </p>
+
+      <div className="entry-links">
+        {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer">Code</a>}
+        {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">Video</a>}
+        {project.note && <span className="note">{project.note}</span>}
       </div>
 
-      {details?.story && (
-        <section className="detail-section">
-          <h2>The Story</h2>
-          <p>{details.story}</p>
-        </section>
-      )}
+      {details?.story && <DetailSection title="The story" content={details.story} />}
+      {details?.howItWorks && <DetailSection title="How it works" content={details.howItWorks} />}
+      {details?.whatsNext && <DetailSection title="What's next" content={details.whatsNext} />}
 
-      {details?.howItWorks && (
-        <DetailSection title="How It Works" content={details.howItWorks} />
-      )}
-
-
-      {details?.whatsNext && (
-        <DetailSection title="What's Next" content={details.whatsNext} />
-      )}
-    </div>
+      <footer className="colophon">
+        <hr className="rule" />
+        <Link to="/">← Back to everything</Link>
+      </footer>
+    </main>
   )
 }
 

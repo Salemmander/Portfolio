@@ -1,35 +1,60 @@
+export const profile = {
+  name: 'Salem Nassar',
+  headline: 'Software engineer working toward robotics and autonomy.',
+  meta: ['Austin, Texas', 'Software Engineer at Verizon', 'M.S. CS at Georgia Tech'],
+  links: [
+    { label: 'Resume', href: '/Salem-Nassar-Resume.pdf' },
+    { label: 'GitHub', href: 'https://github.com/Salemmander' },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/salemnassar/' },
+    { label: 'Email', href: 'mailto:Salem.Nassar1@outlook.com' },
+  ],
+}
+
 export const projects = [
   {
     title: 'Autonomous RC Car',
     slug: 'autonomous-rc-car',
-    description: 'I taught an RC car to drive itself using nothing but a camera and a neural network. Built on a Raspberry Pi 5 with a PyTorch implementation of NVIDIA\'s PilotNet architecture, it predicts steering and throttle directly from raw camera images.',
-    achievements: [
-      'Trained on 10K+ frames collected from manual driving',
-      'Real-time inference on Raspberry Pi 5 edge hardware',
-      'Autonomously navigates a track in both directions',
-    ],
-    tags: ['Python', 'PyTorch', 'CNNs', 'OpenCV', 'NumPy'],
+    description: 'A small car that drives itself with one camera and a neural network. I collected the driving data, trained NVIDIA\'s PilotNet in PyTorch, and wrote the C++ runtime that runs it on a Raspberry Pi 5.',
+    facts: ['10K+ frames of my own driving', '3.6 ms inference on the Pi 5 CPU', 'Drives the track in both directions'],
+    tags: ['PyTorch', 'C++', 'ONNX Runtime', 'OpenCV', 'Raspberry Pi 5'],
     github: 'https://github.com/Salemmander/autonomous-rc-car',
-    media: { type: 'video', src: '/autonomous_rc_car_demo.mp4' },
     demo: 'https://youtu.be/KV0Y-V7XpoU',
+    media: { type: 'video', src: '/autonomous_rc_car_demo.mp4' },
     details: {
-      story: 'The first time I sat in a self-driving car I was so fascinated that I needed to understand the technology. I knew the impact this would have and I just had to be a part of it. Building an autonomous RC car from scratch was my way into the fundamentals of end-to-end learning, where raw camera input maps directly to control outputs. It\'s the same core idea behind full-scale self-driving, just small enough to crash into a wall without consequences.',
+      story: 'The first time I sat in a self-driving car, I needed to understand the technology. This is the same core idea, just small enough to crash into a wall without consequences.',
       howItWorks: {
-        intro: 'I collected training data by driving the car myself, then trained a neural network to replicate my steering and throttle.',
+        intro: 'I drove the car myself to collect training data, then trained a network to copy my steering and throttle.',
         bullets: [
-          'Keyboard controls for manual driving, recorded 10,000 frames paired with steering and throttle values',
-          'NVIDIA PilotNet architecture: 5 conv layers into fully connected layers, outputs steering and throttle',
-          'Frames resized to 120x160, top 30% cropped, converted to YCbCr per the PilotNet paper',
-          'Full inference loop runs at ~45 Hz on the Pi 5 CPU',
+          'Recorded 10,000+ camera frames paired with my steering and throttle',
+          'NVIDIA PilotNet: 5 conv layers into fully connected layers, outputting steering and throttle',
+          'Frames are 160x120, top 30% cropped, and converted to YCbCr per the PilotNet paper',
+          'C++ runtime: a camera thread captures frames with OpenCV while the control loop runs the model with ONNX Runtime',
+          'Inference takes 3.6 ms, and the loop runs at 25 Hz, the camera\'s frame rate',
         ],
       },
-      whatsNext: {
-        intro: 'There\'s a lot I still want to explore with this project.',
+    },
+  },
+  {
+    title: 'Reinforcement Learning Racing Agent',
+    slug: 'deepracer-rl-agent',
+    description: 'An agent that learned to race a simulated AWS DeepRacer car using only two cameras and a LiDAR scan. Built for Georgia Tech\'s Reinforcement Learning course.',
+    facts: ['PPO written in PyTorch', 'Camera and LiDAR fusion', '15/15 official time-trial runs'],
+    tags: ['PyTorch', 'PPO', 'Sensor Fusion', 'Gymnasium'],
+    note: 'Course project, so the code is private.',
+    media: {
+      type: 'video',
+      src: '/deepracer_time_trial.mp4',
+      caption: 'What the agent sees: its left and right cameras during a time trial.',
+      pixelated: true,
+    },
+    details: {
+      howItWorks: {
+        intro: 'The agent never gets its position or heading. It has to drive from what its sensors show.',
         bullets: [
-          'Switch from keyboard to gamepad for smoother analog steering and throttle input',
-          'Collect recovery data to teach the model how to correct itself',
-          'Custom model architecture for handling things like stop sign detection',
-          'Reinforcement learning and sim-to-real transfer',
+          'Observations: two grayscale camera images and a 64-ray LiDAR scan',
+          'A shared 2D CNN reads both cameras, a 1D CNN reads the LiDAR, and their features are fused for the actor and critic',
+          'PPO with continuous steering and throttle, trained across 4 simulators in parallel',
+          'I picked the checkpoint that stayed reliable across all three test tracks. It completed all 15 official time-trial runs.',
         ],
       },
     },
@@ -37,12 +62,9 @@ export const projects = [
   {
     title: 'Object Tracking Camera',
     slug: 'object-tracking-camera',
-    description: 'A camera that follows you around the room. Uses YOLOv11 for real-time object detection on a Raspberry Pi 5, with PID-controlled servo motors for smooth pan-tilt tracking.',
-    achievements: [
-      'Low-latency face detection in video streams using YOLOv11 and OpenCV',
-      'Closed-loop PID controller in C++ driving PCA9685 servo motors for smooth pan-tilt tracking',
-    ],
-    tags: ['Python', 'OpenCV', 'C++', 'PID Control'],
+    description: 'A camera that follows your face around the room. YOLOv11 finds you, and a PID controller in C++ keeps you centered with two servos.',
+    facts: ['YOLOv11 face detection at 25-30 FPS on a Pi 5', 'PID control in C++ for pan and tilt'],
+    tags: ['Python', 'C++', 'OpenCV', 'YOLOv11', 'PID Control'],
     github: 'https://github.com/Salemmander/object-tracking-camera',
     media: { type: 'image', src: '/object_tracking_demo.gif' },
     details: {
@@ -60,30 +82,29 @@ export const projects = [
   },
 ]
 
-export const education = [
-  {
-    school: 'Georgia Institute of Technology (Online)',
-    degree: 'M.S. Computer Science',
-    detail: 'Machine Learning Specialization',
-    gpa: '4.0',
-    period: '2025 - Present',
-  },
-  {
-    school: 'University of Texas at Dallas',
-    degree: 'B.S. Computer Science',
-    period: '2020 - 2024',
-  },
-]
-
 export const experience = [
   {
     title: 'Software Engineer',
     company: 'Verizon',
-    period: '2024 - Present',
+    period: '2024 – Present',
     bullets: [
-      'Led development of 20+ Python automation tools for edge infrastructure across 8+ platforms',
-      'Reduced deployment time by 90% using GitLab CI/CD for multi-stage Docker builds and OpenTofu-automated multi-cluster OpenShift deployments',
-      'Solely owned and maintained two production platforms on OpenShift, including secrets management infrastructure and a Helm-deployed multi-service application with PostgreSQL, Redis, and Celery workers',
+      'Built 20+ Python automation tools for edge infrastructure across 8+ vendor platforms',
+      'Cut deployment time 90% with GitLab CI/CD and OpenTofu-automated OpenShift deployments',
+      'Solely own two production platforms on OpenShift, including secrets management with HashiCorp Vault',
     ],
+  },
+]
+
+export const education = [
+  {
+    school: 'Georgia Institute of Technology',
+    degree: 'M.S. Computer Science, Machine Learning',
+    period: '2025 – 2027',
+    detail: 'GPA 4.0. Computer Vision, AI Techniques for Robotics, Reinforcement Learning, Deep Learning.',
+  },
+  {
+    school: 'University of Texas at Dallas',
+    degree: 'B.S. Computer Science',
+    period: '2020 – 2024',
   },
 ]

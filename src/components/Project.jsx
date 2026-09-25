@@ -1,40 +1,41 @@
 import { Link } from 'react-router-dom'
-import { FaGithub } from 'react-icons/fa'
-import './Project.css'
+import Media from './Media'
 
-function Project({ project }) {
+const NUMERALS = ['i', 'ii', 'iii', 'iv', 'v', 'vi']
+
+function Project({ project, index }) {
   return (
-    <div className="project-card card">
-      {project.media && (
-        <div className="media">
-          {project.media.type === 'image'
-            ? <img src={project.media.src} alt={project.title} />
-            : <video src={project.media.src} autoPlay loop muted playsInline />
-          }
-        </div>
-      )}
-      <div className="card-body">
-        <div className="card-header">
-          <Link to={`/projects/${project.slug}`} className="project-overlay-link">
-            <h3>{project.title}</h3>
-          </Link>
-          <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="github-icon"><FaGithub /></a>
-        </div>
-        <p>{project.description}</p>
-        {project.achievements && (
-          <ul className="achievements bullet-list">
-            {project.achievements.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        )}
-        <div className="tags">
-          {project.tags.map((tag) => (
-            <span key={tag} className="tag">{tag}</span>
+    <article className="entry">
+      <span className="entry-number label">{NUMERALS[index]}.</span>
+      <h2>
+        <Link to={`/projects/${project.slug}`}>{project.title}</Link>
+      </h2>
+
+      {project.media && <Media media={project.media} alt={project.title} />}
+
+      <p>{project.description}</p>
+
+      {project.facts && (
+        <ul className="facts">
+          {project.facts.map((fact) => (
+            <li key={fact}>{fact}</li>
           ))}
-        </div>
+        </ul>
+      )}
+
+      <p className="tags label">
+        {project.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </p>
+
+      <div className="entry-links">
+        <Link to={`/projects/${project.slug}`}>How it works</Link>
+        {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer">Code</a>}
+        {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">Video</a>}
+        {project.note && <span className="note">{project.note}</span>}
       </div>
-    </div>
+    </article>
   )
 }
 
