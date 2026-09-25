@@ -106,7 +106,11 @@ export const education = [
     school: 'Georgia Institute of Technology',
     degree: 'M.S. Computer Science, Machine Learning',
     period: '2025 – 2027',
-    detail: 'GPA 4.0. Computer Vision, AI Techniques for Robotics, Reinforcement Learning, Deep Learning.',
+    detail: 'GPA 4.0',
+    courses: [
+      'Completed Artificial Intelligence, Computer Vision, Machine Learning, AI Techniques for Robotics, and Reinforcement Learning',
+      'Now taking Advanced Operating Systems and Deep Learning',
+    ],
   },
   {
     school: 'University of Texas at Dallas',

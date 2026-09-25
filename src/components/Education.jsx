@@ -11,6 +11,9 @@ function Education({ education }) {
           </div>
           <p className="item-sub">{edu.degree}</p>
           {edu.detail && <p className="item-detail">{edu.detail}</p>}
+          {edu.courses?.map((line) => (
+            <p key={line} className="item-detail">{line}</p>
+          ))}
         </div>
       ))}
     </section>
