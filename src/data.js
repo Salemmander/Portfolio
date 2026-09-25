@@ -14,6 +14,8 @@ export const projects = [
   {
     title: 'Autonomous RC Car',
     slug: 'autonomous-rc-car',
+    summary: 'Drives itself with one camera and a neural network.',
+    stat: { value: '3.6 ms', label: 'inference' },
     description: 'A small car that drives itself with one camera and a neural network. I collected the driving data, trained NVIDIA\'s PilotNet in PyTorch, and wrote the C++ runtime that runs it on a Raspberry Pi 5.',
     facts: ['10K+ frames of my own driving', '3.6 ms inference on the Pi 5 CPU', 'Drives the track in both directions'],
     tags: ['PyTorch', 'C++', 'ONNX Runtime', 'OpenCV', 'Raspberry Pi 5'],
@@ -37,6 +39,8 @@ export const projects = [
   {
     title: 'Reinforcement Learning Racing Agent',
     slug: 'deepracer-rl-agent',
+    summary: 'Learned to race from two cameras and a LiDAR scan.',
+    stat: { value: '15/15', label: 'time trials' },
     description: 'An agent that learned to race a simulated AWS DeepRacer car using only two cameras and a LiDAR scan. Built for Georgia Tech\'s Reinforcement Learning course.',
     facts: ['PPO written in PyTorch', 'Camera and LiDAR fusion', '15/15 official time-trial runs'],
     tags: ['PyTorch', 'PPO', 'Sensor Fusion', 'Gymnasium'],
@@ -62,6 +66,8 @@ export const projects = [
   {
     title: 'Object Tracking Camera',
     slug: 'object-tracking-camera',
+    summary: 'Follows your face around the room with two servos.',
+    stat: { value: '25-30 FPS', label: 'on a Pi 5' },
     description: 'A camera that follows your face around the room. YOLOv11 finds you, and a PID controller in C++ keeps you centered with two servos.',
     facts: ['YOLOv11 face detection at 25-30 FPS on a Pi 5', 'PID control in C++ for pan and tilt'],
     tags: ['Python', 'C++', 'OpenCV', 'YOLOv11', 'PID Control'],

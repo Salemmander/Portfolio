@@ -1,4 +1,4 @@
-import Project from '../components/Project'
+import Contents from '../components/Contents'
 import Experience from '../components/Experience'
 import Education from '../components/Education'
 import { profile, projects, education, experience } from '../data'
@@ -35,9 +35,7 @@ function Home() {
       <section id="projects">
         <hr className="rule" />
         <h2 className="section-title label">Projects</h2>
-        {projects.map((project, index) => (
-          <Project key={project.slug} project={project} index={index} />
-        ))}
+        <Contents projects={projects} />
       </section>
 
       <Experience experience={experience} />
