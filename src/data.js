@@ -108,15 +108,17 @@ export const education = [
     period: '2025 – 2027',
     detail: 'GPA 4.0',
     courses: [
-      'Completed Artificial Intelligence, Computer Vision, Machine Learning, AI Techniques for Robotics, and Reinforcement Learning',
-      'Now taking Advanced Operating Systems and Deep Learning',
-      'Up next are High-Performance Computing, Graduate Algorithms, and GPU Hardware and Software',
+      { label: 'Completed', list: 'Artificial Intelligence, Computer Vision, Machine Learning, AI Techniques for Robotics, Reinforcement Learning' },
+      { label: 'Now taking', list: 'Advanced Operating Systems, Deep Learning' },
+      { label: 'Up next', list: 'High-Performance Computing, Graduate Algorithms, GPU Hardware and Software' },
     ],
   },
   {
     school: 'University of Texas at Dallas',
     degree: 'B.S. Computer Science',
     period: '2020 – 2024',
-    courses: ['Data Structures and Algorithms, Machine Learning, Artificial Intelligence'],
+    courses: [
+      { label: 'Coursework', list: 'Data Structures and Algorithms, Machine Learning, Artificial Intelligence' },
+    ],
   },
 ]

@@ -11,9 +11,16 @@ function Education({ education }) {
           </div>
           <p className="item-sub">{edu.degree}</p>
           {edu.detail && <p className="item-detail">{edu.detail}</p>}
-          {edu.courses?.map((line) => (
-            <p key={line} className="item-detail">{line}</p>
-          ))}
+          {edu.courses && (
+            <dl className="courses">
+              {edu.courses.map(({ label, list }) => (
+                <div key={label}>
+                  <dt className="label">{label}</dt>
+                  <dd>{list}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </div>
       ))}
     </section>
