@@ -43,6 +43,13 @@ function ProjectDetail() {
       <Link to="/" className="back">← Salem Nassar</Link>
 
       <h1>{project.title}</h1>
+
+      <div className="entry-links detail-links">
+        {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer">Code</a>}
+        {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">Video</a>}
+        {project.note && <span className="note">{project.note}</span>}
+      </div>
+
       <p className="lede">{project.description}</p>
 
       {project.media && <Media media={project.media} alt={project.title} />}
@@ -52,12 +59,6 @@ function ProjectDetail() {
           <span key={tag}>{tag}</span>
         ))}
       </p>
-
-      <div className="entry-links">
-        {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer">Code</a>}
-        {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">Video</a>}
-        {project.note && <span className="note">{project.note}</span>}
-      </div>
 
       {details?.story && <DetailSection title="The story" content={details.story} />}
       {details?.howItWorks && <DetailSection title="How it works" content={details.howItWorks} />}

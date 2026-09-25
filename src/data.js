@@ -48,7 +48,7 @@ export const projects = [
     media: {
       type: 'video',
       src: '/deepracer_time_trial.mp4',
-      caption: 'What the agent sees: its left and right cameras during a time trial.',
+      caption: 'The agent\'s view from its left and right cameras during a time trial.',
       pixelated: true,
     },
     details: {
