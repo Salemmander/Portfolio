@@ -25,7 +25,7 @@ export const projects = [
     details: {
       story: 'The first time I sat in a self-driving car, I needed to understand the technology. This is the same core idea, just small enough to crash into a wall without consequences.',
       howItWorks: {
-        intro: 'I drove the car myself to collect training data, then trained a network to copy my steering and throttle.',
+        intro: 'The car learns by imitation. I drove laps around the track, and PilotNet learned to predict my steering and throttle from each camera frame.',
         bullets: [
           'Recorded 10,000+ camera frames paired with my steering and throttle',
           'NVIDIA PilotNet: 5 conv layers into fully connected layers, outputting steering and throttle',
