@@ -110,11 +110,13 @@ export const education = [
     courses: [
       'Completed Artificial Intelligence, Computer Vision, Machine Learning, AI Techniques for Robotics, and Reinforcement Learning',
       'Now taking Advanced Operating Systems and Deep Learning',
+      'Up next are High-Performance Computing, Graduate Algorithms, and GPU Hardware and Software',
     ],
   },
   {
     school: 'University of Texas at Dallas',
     degree: 'B.S. Computer Science',
     period: '2020 – 2024',
+    courses: ['Data Structures and Algorithms, Machine Learning, Artificial Intelligence'],
   },
 ]
