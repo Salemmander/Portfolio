@@ -105,12 +105,11 @@ export const education = [
   {
     school: 'Georgia Institute of Technology',
     degree: 'M.S. Computer Science, Machine Learning',
-    period: '2025 – 2027',
+    period: '2025 – 2028',
     detail: 'GPA 4.0',
     courses: [
       { label: 'Completed', list: 'Artificial Intelligence, Computer Vision, Machine Learning, AI Techniques for Robotics, Reinforcement Learning' },
-      { label: 'Now taking', list: 'Advanced Operating Systems, Deep Learning' },
-      { label: 'Up next', list: 'High-Performance Computing, Graduate Algorithms, GPU Hardware and Software' },
+      { label: 'Now taking', list: 'Deep Learning' },
     ],
   },
   {
