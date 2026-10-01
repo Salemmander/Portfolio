@@ -82,11 +82,6 @@ function Contents({ projects }) {
                 <span className="toc-title">{project.title}</span>
                 <span className="toc-summary">{project.summary}</span>
               </span>
-              <span className="toc-leader" aria-hidden="true" />
-              <span className="toc-stat">
-                <span className="toc-stat-value">{project.stat.value}</span>
-                <span className="toc-stat-label label">{project.stat.label}</span>
-              </span>
             </Link>
           </li>
         ))}
