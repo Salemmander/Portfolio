@@ -110,7 +110,6 @@ export const education = [
     courses: [
       { label: 'Completed', list: 'Artificial Intelligence, Computer Vision, Machine Learning, AI Techniques for Robotics, Reinforcement Learning' },
       { label: 'Now taking', list: 'Deep Learning' },
-      { label: 'Up next', list: 'High-Performance Computing, Graduate Algorithms, GPU Hardware and Software' },
     ],
   },
   {
