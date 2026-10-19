@@ -36,6 +36,34 @@ export const projects = [
     },
   },
   {
+    title: 'Parallel Cartpole',
+    slug: 'parallel-cartpole',
+    summary: 'Thousands of GPU simulations teaching a CNN to balance from pixels.',
+    description: 'Reinforcement learning where everything stays on the GPU. Thousands of MuJoCo Warp simulations, a camera image for each one, and PPO I wrote in PyTorch. I built it to learn the pieces I need to train my RC car in simulation.',
+    facts: ['18.8M env steps/s on one RTX 3080', 'Learns to balance from pixels alone in 34 s', 'PPO written from scratch'],
+    tags: ['PyTorch', 'MuJoCo Warp', 'NVIDIA Warp', 'CUDA Graphs', 'PPO'],
+    github: 'https://github.com/Salemmander/parallel-cartpole',
+    media: {
+      type: 'video',
+      src: '/parallel_cartpole_demo.mp4',
+      caption: 'The policy only gets the 128x32 camera image at the bottom. It starts tilted and gets nudged every 2 seconds.',
+    },
+    details: {
+      story: 'My RC car learned by copying my driving. I want it to learn on its own instead, and that takes millions of tries. Real hardware can\'t do that, so I needed a fast simulator first. Cartpole was the simplest place to build the whole pipeline.',
+      howItWorks: {
+        intro: 'The environment, the camera, the neural network, and the training all run on one GPU, so data never goes back to the CPU.',
+        bullets: [
+          'MuJoCo Warp steps thousands of cartpoles at once',
+          'Custom Warp kernels compute observations and rewards, and reset each environment when its pole falls',
+          'The whole env step is captured as one CUDA graph and replayed with a single call',
+          'Each environment renders its own 128x32 camera image, and the last 3 frames are stacked so the policy can see motion',
+          'PPO with GAE. The CNN actor only sees pixels, while the critic gets the true state during training',
+          'bf16, uint8 frame storage, and a smaller CNN made pixel training 1.7x faster with 3.6x less memory',
+        ],
+      },
+    },
+  },
+  {
     title: 'Reinforcement Learning Racing Agent',
     slug: 'deepracer-rl-agent',
     summary: 'Learned to race from two cameras and a LiDAR scan.',
