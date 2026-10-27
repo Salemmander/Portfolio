@@ -62,6 +62,7 @@ function ProjectDetail() {
 
       {details?.story && <DetailSection title="The story" content={details.story} />}
       {details?.howItWorks && <DetailSection title="How it works" content={details.howItWorks} />}
+      {details?.simulation && <DetailSection title="Training in simulation" content={details.simulation} />}
       {details?.whatsNext && <DetailSection title="What's next" content={details.whatsNext} />}
 
       <footer className="colophon">
