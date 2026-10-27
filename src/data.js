@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Salem Nassar',
   headline: 'Software engineer working toward robotics and autonomy.',
-  meta: ['Austin, Texas', 'Software Engineer at Verizon', 'M.S. CS at Georgia Tech'],
+  meta: ['Austin, Texas', 'Software Engineer at Verizon, 2+ years', 'M.S. CS at Georgia Tech'],
   links: [
     { label: 'Resume', href: '/Salem-Nassar-Resume.pdf' },
     { label: 'GitHub', href: 'https://github.com/Salemmander' },
@@ -14,32 +14,51 @@ export const projects = [
   {
     title: 'Autonomous RC Car',
     slug: 'autonomous-rc-car',
-    summary: 'Drives itself with one camera and a neural network.',
-    description: 'A small car that drives itself with one camera and a neural network. I collected the driving data, trained NVIDIA\'s PilotNet in PyTorch, and wrote the C++ runtime that runs it on a Raspberry Pi 5.',
-    facts: ['10K+ frames of my own driving', '3.6 ms inference on the Pi 5 CPU', 'Drives the track in both directions'],
-    tags: ['PyTorch', 'C++', 'ONNX Runtime', 'OpenCV', 'Raspberry Pi 5'],
+    summary: 'Drives from one camera. Behavior cloning on the car, PPO in simulation.',
+    description: 'A small car that drives itself with one camera and a neural network. I collected the driving data, trained NVIDIA\'s PilotNet in PyTorch, and wrote the C++ runtime that runs it on a Raspberry Pi 5. I also trained a camera-only PilotNet with PPO in a GPU-parallel MuJoCo Warp sim. Deploying that policy on the real car is in progress.',
+    facts: [
+      '10K+ frames, 100% autonomous both directions',
+      '3.6 ms multithreaded ONNX Runtime inference on the Pi 5',
+      '1,024 sim cars; 100% of 256 held-out tracks with the default car',
+    ],
+    tags: ['PyTorch', 'C++', 'ONNX Runtime', 'OpenCV', 'Raspberry Pi 5', 'MuJoCo Warp', 'PPO'],
     github: 'https://github.com/Salemmander/autonomous-rc-car',
     demo: 'https://youtu.be/KV0Y-V7XpoU',
+    // TODO: sim GIF or training plot. This media slot is the real-car demo.
+    // Add sim media when a file exists; do not invent an image.
     media: { type: 'video', src: '/autonomous_rc_car_demo.mp4' },
     details: {
       story: 'The first time I sat in a self-driving car, I needed to understand the technology. This is the same core idea, just small enough to crash into a wall without consequences.',
       howItWorks: {
         intro: 'The car learns by imitation. I drove laps around the track, and PilotNet learned to predict my steering and throttle from each camera frame.',
         bullets: [
-          'Recorded 10,000+ camera frames paired with my steering and throttle',
+          'Behavioral cloning on 10,000+ camera frames paired with my steering and throttle',
+          'Drives the track 100% autonomously in both directions',
           'NVIDIA PilotNet: 5 conv layers into fully connected layers, outputting steering and throttle',
           'Frames are 160x120, top 30% cropped, and converted to YCbCr per the PilotNet paper',
-          'C++ runtime: a camera thread captures frames with OpenCV while the control loop runs the model with ONNX Runtime',
-          'Inference takes 3.6 ms, and the loop runs at 25 Hz, the camera\'s frame rate',
+          'Multithreaded C++ runtime: a camera thread captures frames with OpenCV while the control loop runs the model with ONNX Runtime',
+          'Inference takes 3.6 ms on the Pi 5, and the loop runs at 25 Hz, the camera\'s frame rate',
         ],
       },
+      simulation: {
+        intro: 'Steering stutter on the real car\'s behavior-cloned model motivated a smooth-steering reward. I trained a camera-only PilotNet with PPO in a MuJoCo Warp sim of the car.',
+        // TODO: sim GIF or training plot. No media file yet; do not invent one.
+        bullets: [
+          'GPU-parallel MuJoCo Warp sim of the car: 1,024 cars on 1,024 randomly generated tracks, ~17.5K camera-rendered steps/s on an RTX 3080',
+          'PPO with a camera-only PilotNet actor and a state-based critic',
+          'Domain randomization: actuation latency (40-75 ms), servo trim, top speed, steering angle, floor texture, color of the lane lines, camera pose, exposure, and sensor noise',
+          'The smooth-steering reward cut steering change per step ~50% (0.62 to 0.31) in a 600-iteration (~19 min) run. Crashes per minute went from 9.9 to 0.3',
+          'Held-out eval on 256 tracks never seen in training: 100% finished without crashing with the default car, and 91% (233/256) with a randomized car and visuals',
+        ],
+      },
+      whatsNext: 'Deploying the sim-trained policy on the real car is in progress.',
     },
   },
   {
     title: 'Parallel Cartpole',
     slug: 'parallel-cartpole',
     summary: 'Thousands of GPU simulations teaching a CNN to balance from pixels.',
-    description: 'Reinforcement learning where everything stays on the GPU. Thousands of MuJoCo Warp simulations, a camera image for each one, and PPO I wrote in PyTorch. I built it to learn the pieces I need to train my RC car in simulation.',
+    description: 'Reinforcement learning where everything stays on the GPU. Thousands of MuJoCo Warp simulations, a camera image for each one, and PPO I wrote in PyTorch. I built it to learn the pieces for training my RC car in simulation.',
     facts: ['18.8M env steps/s on one RTX 3080', 'Learns to balance from pixels alone in 34 s', 'PPO written from scratch'],
     tags: ['PyTorch', 'MuJoCo Warp', 'NVIDIA Warp', 'CUDA Graphs', 'PPO'],
     github: 'https://github.com/Salemmander/parallel-cartpole',
@@ -117,11 +136,11 @@ export const experience = [
   {
     title: 'Software Engineer',
     company: 'Verizon',
-    period: '2024 – Present',
+    period: 'June 2024 – Present',
     bullets: [
-      'Built 20+ Python automation tools for edge infrastructure across 8+ vendor platforms',
-      'Cut deployment time 90% with GitLab CI/CD and OpenTofu-automated OpenShift deployments',
-      'Solely own two production platforms on OpenShift, including secrets management with HashiCorp Vault',
+      'Built 20+ Python automations that generate and send router configs for sites and access leaves across 8+ vendor platforms (Cisco, Nokia, Ericsson, Samsung, Ribbon)',
+      'Cut deployment time 90% with GitLab CI/CD multi-stage Docker builds and OpenTofu-automated multi-cluster OpenShift deployments',
+      'Solely deployed Nautobot and HashiCorp Vault to 5 sites with OpenTofu, automating multi-site OpenShift rollouts for both',
     ],
   },
 ]
@@ -130,10 +149,10 @@ export const education = [
   {
     school: 'Georgia Institute of Technology',
     degree: 'M.S. Computer Science, Machine Learning',
-    period: '2025 – 2028',
+    period: 'Aug 2025 – May 2028',
     detail: 'GPA 4.0',
     courses: [
-      { label: 'Completed', list: 'Artificial Intelligence, Computer Vision, Machine Learning, AI Techniques for Robotics, Reinforcement Learning' },
+      { label: 'Completed', list: 'Artificial Intelligence, Computer Vision, Machine Learning, AI Techniques for Robotics (SLAM, localization, motion planning), Reinforcement Learning' },
       { label: 'Now taking', list: 'Deep Learning' },
     ],
   },
